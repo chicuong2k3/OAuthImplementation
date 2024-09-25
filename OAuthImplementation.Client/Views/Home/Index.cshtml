@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Client Information</h1>
+<ul>
+    <li>
+        <span class="badge fw-bold text-black">Client Id</span>
+        <span class="badge bg-danger">@ViewBag.Client.ClientId</span>
+    </li>
+    <li>
+        <span class="badge fw-bold text-black">Client Secret</span>
+        <span class="badge bg-danger">@ViewBag.Client.ClientSecret</span>
+    </li>
+    <li>
+        <span class="badge fw-bold text-black">Redirect Uris</span>
+        @foreach (var item in ViewBag.Client.RedirectUris)
+        {
+           <span class="badge bg-danger">@item</span>
+        }
+    </li> 
+    
+</ul>
+
+<h2>Access Token Information</h2>
+<ul>
+    <li>
+        <span class="badge fw-bold text-black">Access Token</span>
+        <span class="badge bg-danger">@ViewBag.AccessToken</span>
+    </li>
+</ul>
+
+<h1>Auth Server Information</h1>
+<ul>
+    <li>
+        <span class="badge fw-bold text-black">Authorization Endpoint</span>
+        <span class="badge bg-danger">@ViewBag.AuthServer.AuthorizationEndpoint</span>
+    </li>
+    <li>
+        <span class="badge fw-bold text-black">Token Endpoint</span>
+        <span class="badge bg-danger">@ViewBag.AuthServer.TokenEndpoint</span>
+    </li>
+</ul>
+
+<a asp-action="Authorize" class="btn btn-sm btn-success">Authorize</a>
